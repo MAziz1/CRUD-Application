@@ -1,0 +1,26 @@
+<table class="table table-hover table-sm">
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Position</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of empSrv.EmpList">
+      <input type="hidden" [value]="emp.EmployeeID">
+      <td scope="row">{{emp.FirstName}}</td>
+      <td>{{emp.LastName}}</td>
+      <td>{{emp.Position}}</td>
+      <td>
+        <a class="btn" (click)="showForEdit(emp)">
+          <i class="fa fa-pencil-square-o"></i>
+        </a>
+        <a class="btn text-danger" (click)="onDelete(emp.EmployeeID)">
+          <i class="fa fa-trash-o"></i>
+        </a>
+      </td>
+    </tr>    
+  </tbody>
+</table>
